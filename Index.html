@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+  <meta name="theme-color" content="#0b0e13" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Dota Coach" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Dota 2 Pro Coach v7 — iPhone + iPad</title>
+  <style>:root{--bg:#0b0e13;--panel:#141922;--panel2:#10151c;--line:#29303b;--text:#eef2f7;--muted:#9da8b6;--accent:#e05252;--good:#59c37a;--warn:#e3b341;--bad:#ef6b73;--blue:#66a6ff;--gold:#f0b35c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at top,#18202b 0,#0b0e13 42%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.topbar{display:flex;justify-content:space-between;gap:24px;align-items:center;padding:26px 34px;border-bottom:1px solid var(--line);background:rgba(7,10,14,.82);backdrop-filter:blur(10px);position:sticky;top:0;z-index:20}.topbar h1{margin:4px 0;font-size:30px}.topbar p{margin:0;color:var(--muted);max-width:820px}.eyebrow{font-size:11px;letter-spacing:.18em;color:#e57a7a;font-weight:800}.patchbox{min-width:160px;text-align:right}.patchbox span,.patchbox small{display:block;color:var(--muted)}.patchbox strong{font-size:28px}.layout{display:grid;grid-template-columns:390px minmax(0,1fr);gap:20px;padding:20px;max-width:1700px;margin:auto}.panel{background:linear-gradient(180deg,rgba(22,27,37,.98),rgba(16,21,28,.98));border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 12px 30px rgba(0,0,0,.18)}.controls{position:sticky;top:120px;height:calc(100vh - 140px);overflow:auto}.controls h2,.panel h3{margin-top:0}label{display:block;color:var(--muted);font-size:13px;margin:14px 0 6px}input,select,button{width:100%;border-radius:10px;border:1px solid #333c49;background:#0e131a;color:var(--text);padding:10px;font:inherit}button{cursor:pointer;font-weight:800}.primary{background:#263247}.cta{background:linear-gradient(135deg,#a92f35,#e05252);border:none;padding:13px}.secondary{background:#181f29}.status{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.4}.enemyHeader,.rowBetween,.pickerTitle{display:flex;justify-content:space-between;align-items:center}.pickerTitle label{margin-bottom:6px}.pickerTitle span{font-size:12px;color:var(--gold);font-weight:800}.heroPicker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;max-height:285px;overflow:auto;padding:8px 2px 2px;margin-top:7px}.enemyPicker{max-height:220px}.heroChoice{position:relative;padding:0;border-radius:9px;overflow:hidden;background:#0d1218;border:2px solid transparent;min-height:58px;margin:0}.heroChoice img{display:block;width:100%;height:58px;object-fit:cover}.heroChoice .heroName{position:absolute;left:0;right:0;bottom:0;padding:13px 4px 4px;background:linear-gradient(transparent,rgba(0,0,0,.92));font-size:9px;line-height:1.05;text-align:center;text-shadow:0 1px 2px #000}.heroChoice:hover{border-color:#65748a;transform:translateY(-1px)}.heroChoice.selected{border-color:#ff6d74;box-shadow:0 0 0 2px rgba(224,82,82,.18)}.heroChoice.disabled{opacity:.28;cursor:not-allowed}.selectedEnemyHeader{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:16px 0 7px}.selectedEnemyHeader small{color:var(--muted);font-size:10px;text-align:right}.enemyCards{display:grid;gap:8px}.enemyCard{display:grid;grid-template-columns:60px 1fr auto;gap:9px;align-items:center;background:#0d1218;border:1px solid #27303d;border-radius:11px;padding:7px}.enemyPortrait{width:60px;height:42px;object-fit:cover;border-radius:7px}.enemyMeta strong{font-size:12px;display:block}.enemyMeta small{color:var(--muted);font-size:10px}.enemyMiniItems{display:flex;gap:3px;margin-top:5px}.enemyMiniItems img,.miniEmpty{width:22px;height:16px;border-radius:3px;background:#202733;border:1px solid #303a49;object-fit:cover}.enemyActions{display:flex;flex-direction:column;gap:5px}.smallBtn{width:auto;margin:0;padding:6px 8px;font-size:10px;border-radius:7px}.smallBtn.items{background:#202b3c;color:#a8ccff}.smallBtn.remove{background:transparent;color:#ff8d95}.emptyMini{font-size:11px;color:#738091;padding:10px;border:1px dashed #333c49;border-radius:9px;text-align:center}.content{display:grid;gap:20px}.heroBanner{display:flex;justify-content:space-between;gap:24px;align-items:center}.heroIdentityRow{display:flex;gap:15px;align-items:center}.heroMainPortrait{width:118px;height:66px;object-fit:cover;border-radius:11px;border:1px solid #3b4656}.heroBanner h2{font-size:28px;margin:5px 0}.heroBanner p{color:var(--muted);margin:0}.statGrid{display:grid;grid-template-columns:repeat(3,minmax(90px,1fr));gap:8px}.stat{background:#0d1218;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}.stat strong{display:block;font-size:18px}.stat span{color:var(--muted);font-size:11px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}.finalBuildPanel{background:linear-gradient(150deg,rgba(33,23,27,.98),rgba(15,20,27,.98) 45%)}.buildHeading h3{font-size:24px;margin:3px 0}.confidence{padding:8px 11px;border-radius:999px;border:1px solid #3a4654;font-size:12px;font-weight:900}.confidence.low{color:var(--warn);background:#2a2313}.confidence.medium{color:#ffd77a;background:#2a2313}.confidence.high{color:#7ee69e;background:#14281c}.accuracyPrompt{padding:10px 12px;margin:10px 0 15px;border-radius:10px;background:#101722;border:1px solid #2b3748;color:#b7c3d1;font-size:13px}.accuracyPrompt.attention{border-color:#765d28;background:#231d11;color:#f2cf78}.sixSlots{display:grid;grid-template-columns:repeat(6,minmax(92px,1fr));gap:10px}.slot{position:relative;background:#0a0f15;border:1px solid #344050;border-radius:12px;overflow:hidden;min-height:112px}.slotNumber{position:absolute;top:6px;left:7px;z-index:2;background:rgba(0,0,0,.68);font-size:10px;padding:3px 5px;border-radius:5px}.slot img{width:100%;height:72px;display:block;object-fit:cover;background:#171d25}.slotName{font-weight:900;font-size:11px;padding:7px 6px 2px;text-align:center;line-height:1.1}.slotWhy{font-size:9px;color:var(--muted);text-align:center;padding:0 6px 7px;line-height:1.2}.slotReasons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}.reasonChip{border:1px solid #2b3644;background:#0e141c;border-radius:9px;padding:9px;font-size:11px;color:#c4cfdb}.reasonChip strong{color:#fff}.replacementPlan{margin-top:12px;color:#cdd5df;font-size:12px}.replacementPlan .swap{display:inline-block;margin:4px 6px 0 0;background:#151e29;border:1px solid #304157;border-radius:8px;padding:6px 8px}.timeline{display:grid;gap:10px}.timelineItem{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:11px;border-radius:11px;background:#0e131a;border:1px solid #27303d}.timelineItem .time{color:var(--gold);font-weight:800}.timelineItem strong{display:block}.timelineItem small{color:var(--muted)}.transitionLine{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.transition{display:inline-flex;align-items:center;gap:6px;background:#1a1315;border:1px solid #56343a;border-radius:9px;padding:5px 7px;font-size:10px;color:#ffd6d8}.transition.upgrade{background:#121a20;border-color:#345368;color:#cbeaff}.transition.keep{background:#121b15;border-color:#31563b;color:#c9f3d2}.transition img{width:30px;height:21px;object-fit:cover;border-radius:4px}.transition .arrow{font-weight:900;color:#ff8d95}.transition.upgrade .arrow{color:#8bd3ff}.transition.keep .arrow{color:#7ee69e}.itemLine{display:flex;gap:6px;flex-wrap:wrap;margin:5px 0}.itemToken{display:inline-flex;align-items:center;gap:6px;background:#131b25;border:1px solid #304055;border-radius:8px;padding:4px 6px;font-size:11px;font-weight:800}.itemToken img{width:34px;height:24px;object-fit:cover;border-radius:4px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{background:#0e131a;border:1px solid #27303d;border-radius:12px;padding:12px}.card .tag{font-size:11px;font-weight:900;letter-spacing:.08em;color:#f1b36a}.card strong{display:block;margin:5px 0}.card p{color:var(--muted);font-size:13px;margin:0}.textBlock{color:#dce3ec;line-height:1.55}.textBlock ol,.textBlock ul{padding-left:20px;margin:8px 0}.textBlock li{margin:6px 0}.empty{color:#738091}.tableWrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:11px;border-bottom:1px solid #27303d;text-align:left;vertical-align:top}th{color:#aeb9c7;font-size:11px;text-transform:uppercase;letter-spacing:.08em}.tableHero{display:flex;align-items:center;gap:8px}.tableHero img{width:58px;height:34px;object-fit:cover;border-radius:6px}.tableItems{display:flex;gap:3px;flex-wrap:wrap;margin-top:5px}.tableItems img{width:30px;height:21px;object-fit:cover;border-radius:4px}.riskHigh{color:var(--bad);font-weight:800}.riskMed{color:var(--warn);font-weight:800}.riskLow{color:var(--good);font-weight:800}.hint{color:var(--muted);font-size:12px}.links a{display:inline-block;margin:5px 8px 0 0;padding:9px 11px;background:#101824;border:1px solid #31405a;color:#8fbdff;border-radius:10px;text-decoration:none}footer{text-align:center;color:#687382;padding:18px 20px 35px}.modal{position:fixed;inset:0;z-index:100;display:none}.modal.open{display:block}.modalBackdrop{position:absolute;inset:0;background:rgba(0,0,0,.76);backdrop-filter:blur(4px)}.modalCard{position:relative;width:min(960px,calc(100vw - 28px));max-height:calc(100vh - 42px);overflow:auto;margin:21px auto;background:#121821;border:1px solid #354152;border-radius:17px;padding:18px;box-shadow:0 30px 90px rgba(0,0,0,.55)}.modalTop h2{margin:3px 0}.iconButton{width:42px;height:42px;padding:0;font-size:26px;background:#202733}.itemEnemyIdentity{display:flex;align-items:center;gap:10px;margin:8px 0 12px;padding:9px;background:#0d1218;border-radius:10px}.itemEnemyIdentity img{width:86px;height:48px;object-fit:cover;border-radius:7px}.selectedItemsBar{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-bottom:7px}.miniSlots{display:grid;grid-template-columns:repeat(6,78px);gap:7px;margin-bottom:12px}.miniSlot{height:54px;background:#0b1016;border:1px solid #303a49;border-radius:8px;overflow:hidden;position:relative}.miniSlot img{width:100%;height:100%;object-fit:cover}.miniSlot.emptySlot:after{content:'EMPTY';position:absolute;inset:0;display:grid;place-items:center;color:#556171;font-size:8px}.itemTips{font-size:11px;color:var(--muted);margin:7px 0}.itemGrid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;max-height:410px;overflow:auto;padding:4px}.itemChoice{position:relative;padding:0;overflow:hidden;border-radius:9px;background:#0b1016;border:2px solid transparent;min-height:82px}.itemChoice img{width:100%;height:54px;object-fit:cover;display:block}.itemChoice span{display:block;padding:5px 4px;font-size:9px;line-height:1.05;text-align:center}.itemChoice.selected{border-color:#64c884;box-shadow:0 0 0 2px rgba(89,195,122,.14)}.itemChoice:hover{border-color:#60728b}.modalActions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}@media(max-width:1100px){.layout{grid-template-columns:350px minmax(0,1fr)}.sixSlots{grid-template-columns:repeat(3,1fr)}.itemGrid{grid-template-columns:repeat(6,1fr)}}@media(max-width:820px){.layout{grid-template-columns:1fr}.controls{position:static;height:auto}.grid2{grid-template-columns:1fr}.topbar{position:static}.heroBanner{align-items:flex-start;flex-direction:column}.cards,.slotReasons{grid-template-columns:1fr}.heroPicker{grid-template-columns:repeat(5,1fr)}.sixSlots{grid-template-columns:repeat(3,1fr)}.itemGrid{grid-template-columns:repeat(4,1fr)}.miniSlots{grid-template-columns:repeat(6,1fr)}.modalActions{grid-template-columns:1fr}}@media(max-width:520px){.topbar{padding:18px}.patchbox{display:none}.layout{padding:10px}.heroPicker{grid-template-columns:repeat(4,1fr)}.sixSlots{grid-template-columns:repeat(2,1fr)}.itemGrid{grid-template-columns:repeat(3,1fr)}}
+
+
+.neutralRollBox{margin-bottom:12px;padding:10px;border:1px solid #334052;border-radius:11px;background:#0c1117}.neutralRollHead{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px}.neutralRollHead b{font-size:11px}.tierTabs{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:7px 0 10px}.tierTab{padding:7px 4px;font-size:9px;border-radius:7px}.tierTab.active{border-color:#d16a6a;background:#241416;color:#ffc2c2}.rollLabel{font-size:9px;color:#9aa7b5;margin:9px 0 5px}.neutralChoiceGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;max-height:210px;overflow:auto}.neutralChoice{padding:0;overflow:hidden;min-height:64px;border-radius:8px;border:2px solid transparent;background:#0b1016}.neutralChoice img{width:100%;height:42px;object-fit:cover;display:block;background:#161d25}.neutralChoice span{display:block;padding:4px;font-size:8px;line-height:1.1}.neutralChoice.selected{border-color:#66a6ff;box-shadow:0 0 0 1px rgba(102,166,255,.2)}.neutralPickResult{margin-top:9px;padding:8px;border-radius:8px;background:#101a15;border:1px solid #2d6040;font-size:10px;line-height:1.35}.neutralPickResult strong{color:#8be4a5}.neutralPickerNote{font-size:8px;color:#8996a5;line-height:1.35;margin-top:6px}@media(max-width:520px){.neutralChoiceGrid{grid-template-columns:repeat(3,1fr)}}
+.analysisFlash{font-size:11px;color:#91a0b1;margin:7px 0 3px;padding:7px 9px;border-radius:8px;background:#0d131b;border:1px solid #263242}.analysisFlash.ok{color:#8ee5a7;border-color:#285c39;background:#102019}.analysisFlash.warn{color:#f1ce73;border-color:#725a26;background:#221c10}.analysisFlash.error{color:#ff959b;border-color:#77373b;background:#251417}
+.neutralGrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.neutralTier{background:#0d1218;border:1px solid #2c3542;border-radius:11px;padding:9px;min-width:0}.neutralTierHead{display:flex;justify-content:space-between;gap:6px;align-items:center;font-size:9px;color:#f0b35c;margin-bottom:7px}.neutralTierHead strong{color:#91b8ef;font-size:8px;text-align:right}.neutralPrimary{display:flex;align-items:center;gap:7px}.neutralPrimary img{width:58px;height:40px;object-fit:cover;border-radius:6px;background:#171d25;border:1px solid #374150}.neutralPrimary b{display:block;font-size:10px;line-height:1.1}.neutralPrimary small{font-size:8px;color:#6fd18d}.neutralAlts{font-size:8px;color:#8e9aa8;line-height:1.3;margin-top:7px}.neutralTier p{font-size:9px;color:#b6c0cc;line-height:1.35;margin:7px 0 0}.neutralNote{margin-top:9px;line-height:1.4}
+/* v6: prevent long neutral names/enchantments/reasons from escaping cards */
+.neutralTier,.neutralTierHead,.neutralPrimary,.neutralPrimary>div,.neutralAlts,.neutralTier p,.neutralPickResult,.neutralRollHead{min-width:0;max-width:100%}
+.neutralTierHead{flex-wrap:wrap;align-items:flex-start}
+.neutralTierHead span{flex:0 0 auto}
+.neutralTierHead strong{flex:1 1 90px;min-width:0;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+.neutralPrimary{align-items:flex-start}
+.neutralPrimary img{flex:0 0 58px}
+.neutralPrimary>div{flex:1 1 auto;min-width:0;overflow:hidden}
+.neutralPrimary b,.neutralPrimary small,.neutralAlts,.neutralTier p,.neutralPickResult,.neutralPickerNote,.neutralRollHead b{white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+.neutralChoice{min-width:0;max-width:100%}
+.neutralChoice span{width:100%;max-width:100%;white-space:normal;overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
+.neutralChoiceGrid{min-width:0;max-width:100%}
+@media(max-width:1100px){.neutralChoiceGrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:680px){.neutralChoiceGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}.talentTree{display:grid;gap:8px}.talentRow{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr);gap:7px;align-items:stretch;position:relative;padding-bottom:21px}.talentSide{background:#0d1218;border:1px solid #303946;border-radius:9px;padding:8px;display:flex;flex-direction:column;justify-content:center;min-height:59px}.talentSide.chosen{border-color:#4fa96c;background:#11231a;box-shadow:inset 0 0 0 1px rgba(89,195,122,.15)}.talentSide b{font-size:10px;line-height:1.25}.sideLabel{font-size:8px;color:#7e8b9b;margin-bottom:3px}.talentSide.chosen .sideLabel{color:#75d793}.talentLevel{display:grid;place-items:center;border-radius:50%;width:38px;height:38px;align-self:center;background:#2a2021;border:1px solid #6d3f42;color:#f0d0d2;font-weight:900}.talentReason{position:absolute;left:0;right:0;bottom:0;text-align:center;font-size:8px;color:#9eabb9}.cta:active{transform:translateY(1px)}
+@media(max-width:1300px){.neutralGrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:820px){.neutralGrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.neutralGrid{grid-template-columns:1fr}.talentRow{grid-template-columns:1fr 34px 1fr}.talentSide{padding:6px}.talentSide b{font-size:9px}}
+
+/* v7 iPhone/iPad touch + responsive layer */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--bg)}
+body{min-width:0;overflow-x:hidden;padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+button,input,select{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button{min-height:44px}
+input,select{font-size:16px;min-height:44px}
+.heroChoice,.neutralChoice,.itemChoice,.tierTab,.smallBtn,.iconButton{touch-action:manipulation}
+.heroChoice:focus-visible,.neutralChoice:focus-visible,.itemChoice:focus-visible,.tierTab:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #8dbbff;outline-offset:2px}
+.heroPicker,.enemyPicker,.controls,.modalCard,.tableWrap{-webkit-overflow-scrolling:touch}
+.heroChoice img,.itemChoice img,.neutralChoice img{-webkit-user-drag:none;user-select:none}
+.modal{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+.modalCard{overscroll-behavior:contain}
+.topbar{padding-top:max(18px,env(safe-area-inset-top));}
+footer{padding-bottom:max(35px,calc(18px + env(safe-area-inset-bottom)))}
+
+/* iPad landscape / compact desktop */
+@media (min-width:821px) and (max-width:1180px){
+  .layout{grid-template-columns:minmax(300px,34vw) minmax(0,1fr);gap:14px;padding:14px}
+  .controls{top:104px;height:calc(100dvh - 120px)}
+  .topbar{padding:18px 22px;gap:14px}
+  .topbar h1{font-size:25px}
+  .topbar p{font-size:13px}
+  .heroPicker{grid-template-columns:repeat(4,minmax(0,1fr));max-height:36dvh}
+  .sixSlots{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid2{gap:14px}
+  .panel{padding:14px}
+  .neutralGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .neutralChoiceGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+/* iPad portrait + large phones */
+@media (max-width:820px){
+  body{background:linear-gradient(180deg,#121924 0,#0b0e13 35%)}
+  .topbar{position:relative;padding:16px 16px 14px;align-items:flex-start}
+  .topbar h1{font-size:24px;line-height:1.08;margin-top:3px}
+  .topbar p{font-size:12px;line-height:1.45}
+  .patchbox{min-width:92px}
+  .patchbox strong{font-size:20px}
+  .layout{display:block;padding:12px;max-width:none}
+  .controls{position:relative;top:auto;height:auto;max-height:none;overflow:visible;margin-bottom:12px}
+  .content{gap:12px}
+  .panel{border-radius:14px;padding:14px}
+  .heroPicker{grid-template-columns:repeat(5,minmax(0,1fr));max-height:310px;gap:8px}
+  .heroChoice{min-height:66px}
+  .heroChoice img{height:66px}
+  .heroChoice .heroName{font-size:10px;padding-top:17px}
+  .enemyPicker{max-height:260px}
+  .enemyCard{grid-template-columns:68px minmax(0,1fr) auto}
+  .enemyPortrait{width:68px;height:46px}
+  .smallBtn{min-height:36px;padding:7px 9px}
+  .heroBanner{gap:12px}
+  .heroIdentityRow{width:100%}
+  .heroMainPortrait{width:108px;height:62px}
+  .heroBanner h2{font-size:24px}
+  .statGrid{width:100%;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid2{grid-template-columns:1fr;gap:12px}
+  .sixSlots{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .slot{min-height:120px}
+  .slot img{height:74px}
+  .slotReasons,.cards{grid-template-columns:1fr}
+  .timelineItem{grid-template-columns:76px minmax(0,1fr);gap:9px}
+  .tableWrap{margin-left:-4px;margin-right:-4px}
+  table{min-width:720px}
+  .modalCard{width:calc(100vw - 16px);max-height:calc(100dvh - 16px);margin:8px auto;border-radius:14px;padding:14px}
+  .itemGrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .miniSlots{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .neutralGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .neutralChoiceGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .neutralChoice{min-height:98px;padding:7px 5px}
+  .neutralChoice img{max-width:100%;height:52px;object-fit:contain}
+  .neutralChoice span{font-size:10px;line-height:1.15}
+  .talentSide{min-height:68px}
+}
+
+/* iPhone */
+@media (max-width:560px){
+  .topbar{display:block;padding:14px 12px 12px}
+  .topbar h1{font-size:21px}
+  .topbar p{font-size:11px;margin-top:6px}
+  .patchbox{display:flex!important;align-items:center;gap:7px;text-align:left;margin-top:9px;min-width:0}
+  .patchbox span,.patchbox small{display:inline;font-size:10px}
+  .patchbox strong{font-size:15px}
+  .layout{padding:8px}
+  .panel{padding:11px;border-radius:12px}
+  .controls h2{font-size:19px}
+  .pickerTitle{align-items:flex-end;gap:8px}
+  .heroPicker{grid-template-columns:repeat(3,minmax(0,1fr));max-height:360px;gap:7px}
+  .heroChoice{min-height:76px;border-radius:10px}
+  .heroChoice img{height:76px}
+  .heroChoice .heroName{font-size:10px;padding:22px 4px 5px}
+  .selectedEnemyHeader{align-items:flex-start;flex-direction:column;gap:3px}
+  .selectedEnemyHeader small{text-align:left}
+  .enemyCard{grid-template-columns:58px minmax(0,1fr);grid-template-areas:'portrait meta' 'actions actions';gap:7px}
+  .enemyPortrait{grid-area:portrait;width:58px;height:42px}
+  .enemyMeta{grid-area:meta;min-width:0}
+  .enemyActions{grid-area:actions;display:grid;grid-template-columns:1fr 1fr}
+  .smallBtn{width:100%;min-height:40px;font-size:11px}
+  .heroIdentityRow{align-items:flex-start}
+  .heroMainPortrait{width:96px;height:56px}
+  .heroBanner h2{font-size:21px}
+  .heroBanner p{font-size:12px}
+  .stat{padding:8px 4px}
+  .stat strong{font-size:16px}
+  .stat span{font-size:9px}
+  .buildHeading{display:block}
+  .confidence{display:inline-block;margin-top:6px}
+  .sixSlots{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .slot{min-height:128px}
+  .slot img{height:78px}
+  .slotName{font-size:11px}
+  .slotWhy{font-size:9px}
+  .timelineItem{display:block}
+  .timelineItem .time{margin-bottom:5px}
+  .transition{max-width:100%;flex-wrap:wrap}
+  .itemToken{max-width:100%}
+  .itemToken span{min-width:0;overflow-wrap:anywhere}
+  .neutralGrid{grid-template-columns:1fr}
+  .neutralChoiceGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .neutralChoice{min-height:106px}
+  .neutralChoice img{height:58px}
+  .tierTabs{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+  .tierTab{min-width:0;padding:8px 2px;font-size:11px}
+  .neutralRollHead{align-items:flex-start;flex-direction:column;gap:4px}
+  .talentRow{grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);gap:5px;padding-bottom:28px}
+  .talentSide{padding:6px;min-height:74px}
+  .talentSide b{font-size:9px}
+  .talentReason{font-size:8px;line-height:1.15}
+  .modalCard{width:100vw;max-height:100dvh;height:100dvh;margin:0;border-radius:0;border-left:0;border-right:0;padding:12px;padding-bottom:max(14px,calc(10px + env(safe-area-inset-bottom)))}
+  .modalTop{position:sticky;top:0;z-index:3;background:#121821;padding:4px 0 8px}
+  .iconButton{min-width:44px;width:44px;height:44px}
+  .itemEnemyIdentity img{width:72px;height:42px}
+  .miniSlots{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .miniSlot{height:56px}
+  .itemGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .itemChoice{min-width:0}
+  .itemChoice span{overflow-wrap:anywhere;word-break:break-word}
+  .modalActions{position:sticky;bottom:0;background:linear-gradient(transparent,#121821 20%);padding-top:14px;padding-bottom:max(4px,env(safe-area-inset-bottom));z-index:2}
+  .links a{display:block;margin:7px 0;width:100%;text-align:center}
+  footer{font-size:10px;padding-left:12px;padding-right:12px}
+}
+
+/* iPhone SE / very narrow */
+@media (max-width:380px){
+  .heroPicker{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sixSlots{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .neutralChoiceGrid,.itemGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .statGrid{gap:5px}
+  .talentRow{grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr)}
+}
+
+@media (hover:none) and (pointer:coarse){
+  .heroChoice:hover{border-color:transparent;transform:none}
+  .heroChoice.selected:hover{border-color:#ff6d74}
+  button:hover{transform:none}
+}
+
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">LOCAL DOTA 2 MATCHUP LAB</div>
+      <h1>Dota 2 Pro Coach</h1>
+      <p>Pick heroes with portraits, add the enemies' real items, and get an adaptive six-slot carry build instead of a fixed shopping list.</p>
+    </div>
+    <div class="patchbox">
+      <span>Target patch</span>
+      <strong>7.41e • v5</strong>
+      <small>July 30, 2026</small>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel controls">
+      <h2>Match Setup</h2>
+      <label>Game mode
+        <select id="mode">
+          <option value="normal">Normal / Ranked</option>
+          <option value="turbo">Turbo</option>
+        </select>
+      </label>
+
+      <div class="pickerTitle"><label>Your hero</label><span id="myHeroLabel">None</span></div>
+      <input id="heroSearch" placeholder="Search hero…" autocomplete="off" />
+      <div id="myHeroGrid" class="heroPicker"></div>
+
+      <div class="enemyHeader">
+        <label>Enemy heroes</label><span id="enemyCount">0 / 5</span>
+      </div>
+      <input id="enemySearch" placeholder="Search enemies…" autocomplete="off" />
+      <div id="enemyHeroGrid" class="heroPicker enemyPicker"></div>
+
+      <div class="selectedEnemyHeader">
+        <strong>Selected enemies</strong>
+        <small>Click ITEMS to add what they bought</small>
+      </div>
+      <div id="enemyCards" class="enemyCards"><div class="emptyMini">Pick up to five enemies.</div></div>
+
+      <button id="analyze" class="cta">Analyze + Build 6 Slots</button>
+      <div id="analysisFlash" class="analysisFlash">Ready.</div>
+      <button id="refresh" class="secondary">Refresh Live Hero + Item Data</button>
+      <div id="status" class="status">Loading Dota database…</div>
+    </aside>
+
+    <section class="content">
+      <div class="heroBanner panel">
+        <div id="heroIdentity">
+          <div class="eyebrow">SELECT A HERO</div>
+          <h2>Build your matchup plan</h2>
+          <p>Pick your carry and enemies. Add enemy items for the highest-confidence final inventory.</p>
+        </div>
+        <div class="statGrid" id="liveStats"></div>
+      </div>
+
+      <article class="panel finalBuildPanel">
+        <div class="rowBetween buildHeading">
+          <div>
+            <div class="eyebrow">ADAPTIVE ENDGAME INVENTORY</div>
+            <h3>Recommended Final 6 Slots</h3>
+          </div>
+          <div id="confidenceBadge" class="confidence low">Need matchup</div>
+        </div>
+        <div id="accuracyPrompt" class="accuracyPrompt">Select your hero and enemies. For exact counter slots, also add the items you can see on the enemy team.</div>
+        <div id="sixSlots" class="sixSlots empty">Your six-slot build appears here.</div>
+        <div id="slotReasons" class="slotReasons"></div>
+        <div id="replacementPlan" class="replacementPlan"></div>
+      </article>
+
+      <div class="grid2">
+        <article class="panel">
+          <div class="rowBetween"><h3>Neutral Items</h3><span class="hint">Actual roll picker + recommendation</span></div>
+          <div class="neutralRollBox">
+            <div class="neutralRollHead"><b>What did Dota roll for you?</b><span class="hint" id="neutralRollCount">Select the choices you see</span></div>
+            <div class="tierTabs" id="neutralTierTabs"></div>
+            <div class="rollLabel">ARTIFACT CHOICES — click only the icons currently shown in your match</div>
+            <div id="neutralArtifactChoices" class="neutralChoiceGrid"></div>
+            <div class="rollLabel">ENCHANTMENT CHOICES — optional; click the options Dota shows</div>
+            <div id="neutralEnchantChoices" class="neutralChoiceGrid"></div>
+            <div id="neutralPickResult" class="neutralPickResult">Select your actual neutral choices and the coach will rank only those options.</div>
+            <div class="neutralPickerNote">Current 7.41 rule: Artifact rolls are randomized. Enchantments are no longer randomized; their options are determined by hero primary attribute, with some universal choices.</div>
+          </div>
+          <div id="neutralItems" class="neutralGrid empty">Analyze a hero to see Tier 1–5 baseline priorities.</div>
+          <div id="neutralNote" class="hint neutralNote"></div>
+        </article>
+        <article class="panel">
+          <div class="rowBetween"><h3>Talent Tree</h3><span class="hint">Green = recommended</span></div>
+          <div id="talentTree" class="talentTree empty">Analyze a hero to see left/right talent choices.</div>
+          <div id="talentNote" class="hint neutralNote"></div>
+        </article>
+      </div>
+
+      <div class="grid2">
+        <article class="panel">
+          <h3>Purchase Path</h3>
+          <div id="buildTimeline" class="timeline empty">Select a hero and analyze.</div>
+        </article>
+        <article class="panel">
+          <h3>Enemy Problems → Your Answers</h3>
+          <div id="counterCards" class="cards empty">Counter logic appears here.</div>
+        </article>
+      </div>
+
+      <div class="grid2">
+        <article class="panel">
+          <h3>Fight Plan</h3>
+          <div id="fightPlan" class="textBlock empty">Your target order and engagement plan appears here.</div>
+        </article>
+        <article class="panel">
+          <h3>Survival Rules</h3>
+          <div id="survival" class="textBlock empty">How not to feed appears here.</div>
+        </article>
+      </div>
+
+      <div class="grid2">
+        <article class="panel">
+          <h3>Power Spikes</h3>
+          <div id="spikes" class="textBlock empty">Timing windows appear here.</div>
+        </article>
+        <article class="panel">
+          <h3>Skill / Technique Notes</h3>
+          <div id="techniques" class="textBlock empty">Hero-specific mechanics appear here.</div>
+        </article>
+      </div>
+
+      <article class="panel">
+        <div class="rowBetween"><h3>Enemy Threat Breakdown</h3><span class="hint">Hero roles + the items you entered</span></div>
+        <div id="threatTable" class="tableWrap empty">Add enemies to see threats.</div>
+      </article>
+
+      <article class="panel links">
+        <h3>Live Research</h3>
+        <p>OpenDota supplies the live hero/item asset data used by the local UI. Dota2ProTracker is linked for current high-MMR build comparison.</p>
+        <div id="researchLinks"></div>
+      </article>
+    </section>
+  </main>
+
+  <div id="itemModal" class="modal" aria-hidden="true">
+    <div class="modalBackdrop" data-close="1"></div>
+    <section class="modalCard" role="dialog" aria-modal="true" aria-labelledby="itemModalTitle">
+      <div class="rowBetween modalTop">
+        <div>
+          <div class="eyebrow">OPTIONAL — IMPROVES ACCURACY</div>
+          <h2 id="itemModalTitle">Enemy items</h2>
+        </div>
+        <button id="closeItemModal" class="iconButton" title="Close">×</button>
+      </div>
+      <div id="itemEnemyIdentity" class="itemEnemyIdentity"></div>
+      <div class="selectedItemsBar">
+        <span>Selected inventory</span>
+        <strong id="itemCount">0 / 6</strong>
+      </div>
+      <div id="selectedEnemyItems" class="miniSlots"></div>
+      <input id="itemSearch" placeholder="Search item… e.g. Butterfly, BKB, Ghost" autocomplete="off" />
+      <div class="itemTips">Click an item icon to add/remove it. Recipes and most non-purchasable entries are hidden.</div>
+      <div id="itemGrid" class="itemGrid"></div>
+      <div class="modalActions">
+        <button id="clearEnemyItems" class="secondary">Clear this enemy's items</button>
+        <button id="doneEnemyItems" class="cta">Done — Recalculate Build</button>
+      </div>
+    </section>
+  </div>
+
+  <footer>Local helper — not affiliated with Valve, OpenDota, or Dota2ProTracker.</footer>
+  <script>const HERO_API='https://api.opendota.com/api/heroStats';
+const ITEM_API='https://api.opendota.com/api/constants/items';
+const CDN='https://cdn.cloudflare.steamstatic.com';
+
+const FALLBACK_HEROES=[
+ {id:12,name:'npc_dota_hero_phantom_lancer',localized_name:'Phantom Lancer',primary_attr:'agi',attack_type:'Melee',roles:['Carry','Escape','Pusher'],img:'/apps/dota2/images/dota_react/heroes/phantom_lancer.png'},
+ {id:8,name:'npc_dota_hero_juggernaut',localized_name:'Juggernaut',primary_attr:'agi',attack_type:'Melee',roles:['Carry','Pusher','Escape'],img:'/apps/dota2/images/dota_react/heroes/juggernaut.png'},
+ {id:44,name:'npc_dota_hero_phantom_assassin',localized_name:'Phantom Assassin',primary_attr:'agi',attack_type:'Melee',roles:['Carry','Escape'],img:'/apps/dota2/images/dota_react/heroes/phantom_assassin.png'},
+ {id:26,name:'npc_dota_hero_lion',localized_name:'Lion',primary_attr:'int',attack_type:'Ranged',roles:['Support','Disabler','Nuker','Initiator'],img:'/apps/dota2/images/dota_react/heroes/lion.png'},
+ {id:27,name:'npc_dota_hero_shadow_shaman',localized_name:'Shadow Shaman',primary_attr:'int',attack_type:'Ranged',roles:['Support','Pusher','Disabler','Nuker','Initiator'],img:'/apps/dota2/images/dota_react/heroes/shadow_shaman.png'},
+ {id:7,name:'npc_dota_hero_earthshaker',localized_name:'Earthshaker',primary_attr:'str',attack_type:'Melee',roles:['Support','Initiator','Disabler','Nuker'],img:'/apps/dota2/images/dota_react/heroes/earthshaker.png'},
+ {id:2,name:'npc_dota_hero_axe',localized_name:'Axe',primary_attr:'str',attack_type:'Melee',roles:['Initiator','Durable','Disabler'],img:'/apps/dota2/images/dota_react/heroes/axe.png'},
+ {id:35,name:'npc_dota_hero_sniper',localized_name:'Sniper',primary_attr:'agi',attack_type:'Ranged',roles:['Carry','Nuker'],img:'/apps/dota2/images/dota_react/heroes/sniper.png'},
+ {id:41,name:'npc_dota_hero_faceless_void',localized_name:'Faceless Void',primary_attr:'agi',attack_type:'Melee',roles:['Carry','Initiator','Disabler','Escape','Durable'],img:'/apps/dota2/images/dota_react/heroes/faceless_void.png'},
+ {id:74,name:'npc_dota_hero_invoker',localized_name:'Invoker',primary_attr:'int',attack_type:'Ranged',roles:['Carry','Nuker','Disabler','Escape','Pusher'],img:'/apps/dota2/images/dota_react/heroes/invoker.png'},
+ {id:5,name:'npc_dota_hero_crystal_maiden',localized_name:'Crystal Maiden',primary_attr:'int',attack_type:'Ranged',roles:['Support','Disabler','Nuker'],img:'/apps/dota2/images/dota_react/heroes/crystal_maiden.png'}
+];
+
+const ITEM_PATHS={
+ 'Power Treads':'power_treads','Magic Wand':'magic_wand','Manta Style':'manta','Yasha':'yasha',"Aghanim's Scepter":'ultimate_scepter','Eye of Skadi':'skadi','Bloodthorn':'bloodthorn','Heart of Tarrasque':'heart','Butterfly':'butterfly','Abyssal Blade':'abyssal_blade','Skull Basher':'basher','Disperser':'disperser','Nullifier':'nullifier','Black King Bar':'black_king_bar','Battle Fury':'battlefury','Desolator':'desolator','Satanic':'satanic','Monkey King Bar':'monkey_king_bar','Blink Dagger':'blink','Swift Blink':'swift_blink',"Linken's Sphere":'sphere','Scythe of Vyse':'sheepstick','Orchid Malevolence':'orchid','Ghost Scepter':'ghost','Eul\'s Scepter of Divinity':'cyclone','Wind Waker':'wind_waker','Glimmer Cape':'glimmer_cape','Force Staff':'force_staff','Hurricane Pike':'hurricane_pike','Ethereal Blade':'ethereal_blade','Mjollnir':'mjollnir','Maelstrom':'maelstrom','Divine Rapier':'rapier','Sange and Yasha':'sange_and_yasha','Diffusal Blade':'diffusal_blade','Heaven\'s Halberd':'heavens_halberd','Radiance':'radiance','Bloodstone':'bloodstone','Boots of Travel':'travel_boots','Boots of Travel 2':'travel_boots_2','Shadow Blade':'invis_sword','Silver Edge':'silver_edge','Daedalus':'greater_crit'
+};
+
+const FALLBACK_ITEMS=Object.entries(ITEM_PATHS).map(([dname,key],i)=>({id:`f${i}`,dname,img:`/apps/dota2/images/dota_react/items/${key}.png`,cost:1}));
+
+let heroes=[], items=[], neutralDb=[], myHeroId=null, enemies=[], enemyItems={}, activeEnemyId=null;
+let neutralTier=1, rolledArtifacts={}, rolledEnchants={};
+const $=id=>document.getElementById(id);
+const norm=s=>(s||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
+const esc=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+
+function asset(path){if(!path)return '';if(/^https?:/.test(path))return path;return CDN+path.split('?')[0];}
+function heroSlug(h){return (h.name||'').replace('npc_dota_hero_','')||norm(h.localized_name).replace(/ /g,'_');}
+function heroImg(h){return asset(h.img)||`${CDN}/apps/dota2/images/dota_react/heroes/${heroSlug(h)}.png`;}
+function fallbackItemImg(name){const key=ITEM_PATHS[name]||norm(name).replace(/ /g,'_');return `${CDN}/apps/dota2/images/dota_react/items/${key}.png`;}
+function findItem(name){const n=norm(name);return items.find(i=>norm(i.dname)===n)||FALLBACK_ITEMS.find(i=>norm(i.dname)===n)||{id:`x-${n}`,dname:name,img:`/apps/dota2/images/dota_react/items/${ITEM_PATHS[name]||n.replace(/ /g,'_')}.png`,cost:1};}
+function itemImg(itemOrName){const i=typeof itemOrName==='string'?findItem(itemOrName):itemOrName;return i?.img?asset(i.img):fallbackItemImg(i?.dname||itemOrName);}
+function itemToken(name){const i=findItem(name);return `<span class="itemToken"><img src="${itemImg(i)}" alt="${esc(i.dname)}" onerror="this.style.visibility='hidden'"><span>${esc(i.dname)}</span></span>`;}
+
+const heroNotes={
+ 'Phantom Lancer':{
+  fight:['Do not show the real PL first. Send illusions to force spells and reveal enemy reactions.','Hold Doppelganger for dangerous initiation, projectile dodge, confusion, or repositioning.','Attack supports and isolated backliners while illusions occupy the frontline.','If the enemy has instant AoE/control, wait for key spells before fully committing the real hero.'],
+  tech:['Use Manta as a dispel, not only for damage.','Doppelganger can break targeting and create the second you need to survive.','Use control groups/hotkeys for illusion scouting and split pressure.','Bloodthorn, Heart, Butterfly, Abyssal and Nullifier are matchup slots—not automatic purchases.'],
+  spikes:['Treads: lane efficiency','Manta: dispel + illusion spike',"Aghanim's: major Spirit Lance pressure",'Skadi: sticking power + anti-heal','Final two slots: matchup counters']
+ },
+ 'Juggernaut':{
+  fight:['Do not waste Omnislash into a creep wave or summon swarm.','Use Blade Fury defensively when needed; surviving is worth more than a low-value Spin kill.','Look for isolated heroes before committing Slash.','Healing Ward positioning wins long fights—hide it where enemies cannot instantly kill it.'],
+  tech:['Spin is a positioning/survival tool, not only damage.','Manta can save Spin for the next threat by dispelling lesser debuffs.','Blink/Swift Blink solves backline access when walking in is the real problem.','Inspect enemy defensive items before Omnislash.'],
+  spikes:['Battle Fury: farm acceleration','Manta: dispel + pressure','Butterfly: major physical DPS/evasion spike','Blink/Aghanim: backline + Slash flexibility','Late counter item: MKB / Nullifier / Abyssal when required']
+ },
+ 'Phantom Assassin':{
+  fight:['Do not jump the first hero you see. Find the easiest high-value backliner.','Dagger first when possible; force a reaction before committing Phantom Strike.','Use BKB when relevant control is about to land—not automatically at full range.','After deleting one hero, reassess whether the second jump is safe instead of tunneling for a Rampage.'],
+  tech:['BKB is a damage item in practice because uninterrupted attacks create real DPS.','Respect enemy MKB timings: your evasion is not immortality.','Abyssal turns crit burst into reliable kills against mobile targets.','Battle Fury is a farm accelerator; when truly six-slotted it is often the first item to replace for a counter.'],
+  spikes:['Battle Fury: farm acceleration','Desolator: kill + Roshan damage','BKB: teamfight permission','Abyssal: reliable assassination','Satanic: fight reset/sustain']
+ }
+};
+
+
+const NEUTRAL_PATHS={
+ 'Possessed Mask':'possessed_mask','Weighted Dice':'weighted_dice','Duelist Gloves':'duelist_gloves','Chipped Vest':'chipped_vest','Dormant Curio':'dormant_curio','Dagger of Ristul':'dagger_of_ristul','Occult Bracelet':'occult_bracelet','Pollywog Charm':'pollywog_charm',
+ "Poor Man's Shield":'poor_mans_shield','Mana Draught':'mana_draught','Crippling Crossbow':'crippling_crossbow','Defiant Shell':'defiant_shell','Medallion of Courage':'medallion_of_courage','Essence Ring':'essence_ring',"Tumbler's Toy":'tumbler_toy',
+ 'Serrated Shiv':'serrated_shiv','Cloak of Flames':'cloak_of_flames','Gunpowder Gauntlet':'gunpowder_gauntlet','Unrelenting Eye':'unrelenting_eye',"Partisan's Brand":'partisans_brand','Jidi Pollen Bag':'jidi_pollen_bag','Stormcrafter':'stormcrafter',
+ "Giant's Maul":'giants_maul',"Prophet's Pendulum":'prophets_pendulum',"Enchanter's Bauble":'enchanters_bauble',"Flayer's Bota":'flayers_bota','Dandelion Amulet':'dandelion_amulet',"Idol of Scree'Auk":'idol_of_screeauk',
+ 'Stygian Desolator':'stygian_desolator','Divine Regalia':'divine_regalia','Minotaur Horn':'minotaur_horn','Witchbane':'witchbane','Fallen Sky':'fallen_sky','Riftshadow Prism':'riftshadow_prism','Book of the Dead':'book_of_the_dead','Spider Legs':'spider_legs'
+};
+function neutralImg(name){const key=NEUTRAL_PATHS[name]||norm(name).replace(/ /g,'_');return `${CDN}/apps/dota2/images/dota_react/items/${key}.png`;}
+
+const ENCHANTMENT_NAMES=new Set(['Mystical','Brawny','Alert','Tough','Quickened','Keen-Eyed','Vast','Greedy','Vampiric','Timeless','Titanic','Crude','Feverish','Fleetfooted','Audacious','Evolved','Boundless','Wise','Nimble','Hulking','Manic']);
+function isEnchantEntry(i){const s=norm(`${i?.key||''} ${i?.dname||''} ${i?.qual||''}`);return s.includes('enhancement')||s.includes('enchantment')||ENCHANTMENT_NAMES.has(i?.dname);}
+function neutralEntryImg(i){return i?.img?asset(i.img):neutralImg(i?.dname||'');}
+function getNeutralPool(tier,kind){return neutralDb.filter(i=>Number(i.tier)===Number(tier)&&(kind==='ench'?isEnchantEntry(i):!isEnchantEntry(i)));}
+function selectedNeutralNames(store,tier){return store[tier]||[];}
+function toggleNeutralChoice(kind,name){const store=kind==='ench'?rolledEnchants:rolledArtifacts;const max=kind==='ench'?5:(neutralTier===1?4:5);const arr=[...(store[neutralTier]||[])];const idx=arr.indexOf(name);if(idx>=0)arr.splice(idx,1);else if(arr.length<max)arr.push(name);store[neutralTier]=arr;renderNeutralRollPicker();}
+function scoreNeutralChoice(heroName,name,rec,kind){let s=10;const n=norm(name);const tuned=neutralData[heroName]?.find(x=>x.tier===neutralTier);if(kind==='artifact'&&tuned){if(name===tuned.primary)s+=100;const ai=tuned.alts.indexOf(name);if(ai>=0)s+=80-ai*8;}if(rec?.signals?.disablers>=3&&/minotaur horn/.test(n))s+=120;if(rec?.signals?.enemyMkb&&/evasion/.test(n))s-=20;if(/stygian|desolator|maul|shiv|gauntlet|crossbow|brand|dice|mask/.test(n))s+=heroName==='Phantom Assassin'?18:12;if(/cloak|shield|amulet|horn|guard/.test(n)&&rec?.signals?.disablers>=2)s+=16;if(kind==='ench'){if(['Phantom Assassin','Phantom Lancer','Juggernaut'].includes(heroName)&&/alert|nimble|fleetfooted|audacious|evolved/.test(n))s+=25;if(rec?.signals?.disablers>=3&&/brawny|tough|evolved|hulking/.test(n))s+=22;}return s;}
+function renderNeutralRollPicker(){if(!$('neutralTierTabs'))return;const me=heroes.find(h=>h.id==myHeroId);let rec=null;try{rec=me?recommend(me):null;}catch(e){}
+ $('neutralTierTabs').innerHTML=[1,2,3,4,5].map(t=>`<button class="tierTab ${t===neutralTier?'active':''}" data-ntier="${t}">T${t}</button>`).join('');document.querySelectorAll('[data-ntier]').forEach(b=>b.onclick=()=>{neutralTier=Number(b.dataset.ntier);renderNeutralRollPicker();});
+ const ap=getNeutralPool(neutralTier,'artifact');const ep=getNeutralPool(neutralTier,'ench');const sa=selectedNeutralNames(rolledArtifacts,neutralTier),se=selectedNeutralNames(rolledEnchants,neutralTier);
+ const draw=(pool,sel,kind)=>pool.length?pool.map(i=>`<button class="neutralChoice ${sel.includes(i.dname)?'selected':''}" data-nkind="${kind}" data-nname="${esc(i.dname)}" title="${esc(i.dname)}"><img src="${neutralEntryImg(i)}" onerror="this.style.opacity='.18'"><span>${esc(i.dname)}</span></button>`).join(''):`<div class="hint" style="grid-column:1/-1">${neutralDb.length?'No entries detected for this category in the current API data.':'Neutral database not loaded yet. Refresh once while online so it can be cached.'}</div>`;
+ $('neutralArtifactChoices').innerHTML=draw(ap,sa,'artifact');$('neutralEnchantChoices').innerHTML=draw(ep,se,'ench');document.querySelectorAll('[data-nkind]').forEach(b=>b.onclick=()=>toggleNeutralChoice(b.dataset.nkind,b.dataset.nname));
+ const maxA=neutralTier===1?4:5;$('neutralRollCount').textContent=`T${neutralTier}: ${sa.length}/${maxA} artifacts${se.length?` • ${se.length}/5 enchants`:''}`;
+ let html=me?'Select the Artifact icons that are actually on your Dota neutral screen.':'Select your hero first, then click the Artifact icons Dota actually rolled for you.';if(me&&sa.length){const ranked=[...sa].sort((a,b)=>scoreNeutralChoice(me.localized_name,b,rec,'artifact')-scoreNeutralChoice(me.localized_name,a,rec,'artifact'));html=`<strong>Best Artifact from your roll: ${esc(ranked[0])}</strong>`;if(ranked.length>1)html+=`<br>Order: ${ranked.map((x,i)=>`${i+1}. ${esc(x)}`).join(' → ')}`;if(se.length){const er=[...se].sort((a,b)=>scoreNeutralChoice(me.localized_name,b,rec,'ench')-scoreNeutralChoice(me.localized_name,a,rec,'ench'));html+=`<br><strong>Best Enchantment you selected: ${esc(er[0])}</strong>`;}}$('neutralPickResult').innerHTML=html;
+}
+
+const neutralData={
+ 'Phantom Lancer':[
+  {tier:1,primary:'Weighted Dice',alts:['Possessed Mask','Duelist Gloves'],ench:'Alert / Brawny',why:'Current high-MMR PL data favors these early carry neutrals; take the survivability enchantment if enemy burst is the bigger problem.'},
+  {tier:2,primary:'Crippling Crossbow',alts:["Poor Man's Shield",'Mana Draught'],ench:'Alert / Brawny / Nimble',why:'Crossbow is the high-performing aggressive option; use a defensive alternative when you are being focused.'},
+  {tier:3,primary:'Cloak of Flames',alts:['Serrated Shiv','Gunpowder Gauntlet'],ench:'Alert / Brawny',why:'Current PL high-MMR choices cluster around these three. Prioritize survival if AoE is deleting illusions too fast.'},
+  {tier:4,primary:"Prophet's Pendulum",alts:["Giant's Maul","Enchanter's Bauble"],ench:'Alert / Brawny',why:'Pendulum has strong current results; Giant’s Maul is the more common straightforward carry alternative.'},
+  {tier:5,primary:'Minotaur Horn',alts:['Divine Regalia','Stygian Desolator'],ench:'Evolved',why:'Minotaur Horn becomes especially valuable into heavy disable; otherwise scale damage/stats with Regalia or Stygian.'}
+ ],
+ 'Juggernaut':[
+  {tier:1,primary:'Weighted Dice',alts:['Duelist Gloves','Possessed Mask'],ench:'Alert / Brawny',why:'Weighted Dice is performing well in current high-MMR Jug games; swap toward sustain if the lane is rough.'},
+  {tier:2,primary:'Defiant Shell',alts:["Tumbler's Toy","Poor Man's Shield"],ench:'Alert / Nimble',why:'Defiant Shell is the common stable Tier 2; Tumbler’s Toy is useful when repositioning is what saves you.'},
+  {tier:3,primary:'Gunpowder Gauntlet',alts:['Serrated Shiv','Unrelenting Eye'],ench:'Alert / Nimble',why:'Current Jug data favors Gauntlet as the stronger-performing aggressive choice.'},
+  {tier:4,primary:"Giant's Maul",alts:["Flayer's Bota","Enchanter's Bauble"],ench:'Alert / Nimble',why:'Giant’s Maul is the most common current Tier 4 carry choice; Bauble/Bota can outperform in specific games.'},
+  {tier:5,primary:'Stygian Desolator',alts:['Divine Regalia','Minotaur Horn'],ench:'Evolved / Audacious',why:'Stygian is the common late damage choice; Minotaur Horn jumps up in priority when one disable can ruin your Slash.'}
+ ],
+ 'Phantom Assassin':[
+  {tier:1,primary:'Weighted Dice',alts:['Possessed Mask','Duelist Gloves'],ench:'Alert / Brawny',why:'Weighted Dice has strong current results; Possessed Mask is the more common sustain alternative.'},
+  {tier:2,primary:'Defiant Shell',alts:['Crippling Crossbow',"Poor Man's Shield"],ench:'Alert / Nimble',why:'Defiant Shell is the stable current choice; Crossbow is the aggressive option when you are not under threat.'},
+  {tier:3,primary:'Serrated Shiv',alts:['Gunpowder Gauntlet','Unrelenting Eye'],ench:'Alert / Nimble',why:'Serrated Shiv is both very common and strong in current high-MMR PA games.'},
+  {tier:4,primary:"Flayer's Bota",alts:["Giant's Maul","Prophet's Pendulum"],ench:'Alert / Nimble',why:'Bota has excellent current results; Giant’s Maul is the more common simple damage option.'},
+  {tier:5,primary:'Stygian Desolator',alts:['Riftshadow Prism','Minotaur Horn'],ench:'Fleetfooted / Evolved',why:'Stygian is the common assassination option. Against chain-disable, value Minotaur Horn over greedier damage.'}
+ ]
+};
+
+const talentData={
+ 'Phantom Lancer':[
+  {level:25,left:'+2s Illusory Armaments Duration',right:'-4s Doppelganger Cooldown',default:'right',leftPick:'3.3%',rightPick:'96.7%'},
+  {level:20,left:'-70% Juxtapose Illusion Damage Taken',right:'+100 Spirit Lance Damage',default:'right',leftPick:'48.7%',rightPick:'51.3%'},
+  {level:15,left:'+125 Doppelganger Cast Range',right:'50% Illusion Spirit Lance Damage',default:'right',leftPick:'18.2%',rightPick:'81.8%'},
+  {level:10,left:'+3% Juxtapose Illusion Trigger Chance',right:'+1s Spirit Lance Slow Duration',default:'left',leftPick:'95.6%',rightPick:'4.4%'}
+ ],
+ 'Juggernaut':[
+  {level:25,left:'+40% Blade Dance Lifesteal',right:'+1s Omnislash Duration',default:'left',leftPick:'68.6%',rightPick:'31.4%'},
+  {level:20,left:'+120 Blade Fury Damage Per Second',right:'+15% Blade Dance Crit Damage',default:'right',leftPick:'12.4%',rightPick:'87.6%'},
+  {level:15,left:'45 Movement Speed During Blade Fury',right:'-15s Omnislash Cooldown',default:'right',leftPick:'22.8%',rightPick:'77.2%'},
+  {level:10,left:'-1s Bladeform Stack Gain Interval',right:'-12s Healing Ward Cooldown',default:'left',leftPick:'85.5%',rightPick:'14.5%'}
+ ],
+ 'Phantom Assassin':[
+  {level:25,left:'Triple Strike Stifling Dagger',right:'+10% Coup de Grace chance',default:'left',leftPick:'69.2%',rightPick:'30.8%'},
+  {level:20,left:'+60 Phantom Strike Attack Speed',right:'+200 Phantom Strike Cast Range',default:'right',leftPick:'46.4%',rightPick:'53.6%'},
+  {level:15,left:'+15% Stifling Dagger Damage',right:'+20% Immaterial Evasion',default:'right',leftPick:'38.1%',rightPick:'61.9%'},
+  {level:10,left:'-2s Stifling Dagger Cooldown',right:'+0.8s Phantom Strike Duration',default:'right',leftPick:'35.4%',rightPick:'64.6%'}
+ ]
+};
+
+function talentChoice(heroName,row,signals){
+ let pick=row.default,reason='Current high-MMR default.';
+ if(heroName==='Phantom Assassin'&&row.level===15&&signals.enemyMkb){pick='left';reason='Enemy MKB reduces the value of extra evasion, so take Dagger damage.';}
+ if(heroName==='Phantom Assassin'&&row.level===20){if(signals.mobility||signals.supports>=2){pick='right';reason='Extra cast range helps reach mobile/backline targets.';}else{pick='left';reason='If access is easy, attack speed gives the more direct burst window.';}}
+ if(heroName==='Phantom Lancer'&&row.level===15&&signals.disablers>=3){pick='left';reason='Extra Doppelganger cast range is more valuable when positioning against heavy control.';}
+ if(heroName==='Phantom Lancer'&&row.level===20&&(signals.nukers>=3||signals.illusionThreat)){pick='left';reason='Illusion durability matters more when the enemy clears illusions quickly.';}
+ if(heroName==='Juggernaut'&&row.level===15&&signals.mobility&&signals.disablers>=2){pick='left';reason='Spin movement helps reposition through a dangerous control-heavy fight.';}
+ return {pick,reason};
+}
+
+function renderNeutrals(me,rec){
+ const data=neutralData[me.localized_name];
+ if(!data){$('neutralItems').className='neutralGrid empty';$('neutralItems').innerHTML='Neutral recommendations are currently hand-tuned for Phantom Lancer, Juggernaut and Phantom Assassin. Use the Dota2ProTracker link below for this hero.';$('neutralNote').textContent='I avoid inventing neutral choices for heroes that are not yet tuned.';return;}
+ $('neutralItems').className='neutralGrid';
+ $('neutralItems').innerHTML=data.map(t=>{
+   let primary=t.primary,why=t.why;
+   if(rec.signals.disablers>=3&&t.tier===5&&t.alts.includes('Minotaur Horn')){primary='Minotaur Horn';why='Heavy disable detected: prioritize Minotaur Horn over the greedier Tier 5 damage option.';}
+   return `<div class="neutralTier"><div class="neutralTierHead"><span>TIER ${t.tier}</span><strong>${esc(t.ench)}</strong></div><div class="neutralPrimary"><img src="${neutralImg(primary)}" alt="${esc(primary)}" onerror="this.style.opacity='.18'"><div><b>${esc(primary)}</b><small>Recommended</small></div></div><div class="neutralAlts">Alternatives: ${t.alts.map(esc).join(' • ')}</div><p>${esc(why)}</p></div>`;
+ }).join('');
+ $('neutralNote').textContent='Baseline only. For the exact current match, use the roll picker above and click the choices Dota actually offered you.';renderNeutralRollPicker();
+}
+
+function renderTalents(me,rec){
+ const rows=talentData[me.localized_name];
+ if(!rows){$('talentTree').className='talentTree empty';$('talentTree').innerHTML='Talent recommendations are currently hand-tuned for Phantom Lancer, Juggernaut and Phantom Assassin. Use the live Dota2ProTracker link below for this hero.';$('talentNote').textContent='No guessed talent tree is shown for untuned heroes.';return;}
+ $('talentTree').className='talentTree';
+ $('talentTree').innerHTML=rows.map(r=>{const c=talentChoice(me.localized_name,r,rec.signals);return `<div class="talentRow"><div class="talentSide ${c.pick==='left'?'chosen':''}"><span class="sideLabel">LEFT • ${esc(r.leftPick)}</span><b>${esc(r.left)}</b></div><div class="talentLevel">${r.level}</div><div class="talentSide ${c.pick==='right'?'chosen':''}"><span class="sideLabel">RIGHT • ${esc(r.rightPick)}</span><b>${esc(r.right)}</b></div><div class="talentReason">${esc(c.reason)}</div></div>`;}).join('');
+ $('talentNote').textContent='Pick-rate labels are from the current high-MMR build snapshot; matchup overrides only trigger where the enemy information materially changes the choice.';
+}
+
+function safeAnalyze(fromButton=true){
+ try{
+   if(!heroes.length){$('analysisFlash').textContent='Database is still loading. Try again in a moment.';$('analysisFlash').className='analysisFlash warn';return;}
+   if(!myHeroId){$('analysisFlash').textContent='Select your hero first.';$('analysisFlash').className='analysisFlash warn';return;}
+   analyze();
+   if(fromButton){$('analysisFlash').textContent='✓ Analysis updated with current hero + enemy information.';$('analysisFlash').className='analysisFlash ok';$('sixSlots').scrollIntoView({behavior:'smooth',block:'center'});}
+ }catch(err){console.error(err);$('analysisFlash').textContent=`Analyze error: ${err.message || err}`;$('analysisFlash').className='analysisFlash error';}
+}
+
+async function loadData(force=false){
+ $('status').textContent='Loading live OpenDota hero + item data…';
+ let heroLive=false,itemLive=false;
+ try{const r=await fetch(HERO_API,{cache:force?'reload':'default'});if(!r.ok)throw new Error(r.status);heroes=await r.json();localStorage.setItem('dotaHeroCache',JSON.stringify(heroes));heroLive=true;}catch(e){heroes=JSON.parse(localStorage.getItem('dotaHeroCache')||'null')||FALLBACK_HEROES;}
+ try{const r=await fetch(ITEM_API,{cache:force?'reload':'default'});if(!r.ok)throw new Error(r.status);const raw=await r.json();const all=Object.entries(raw).map(([k,v])=>({...v,key:k,id:v.id??k})).filter(i=>i.dname&&i.img);neutralDb=all.filter(i=>Number(i.tier)>=1&&Number(i.tier)<=5);items=all.filter(i=>!/^recipe/i.test(i.dname)&&(Number(i.cost)>0||['Aghanim\'s Shard'].includes(i.dname)));localStorage.setItem('dotaItemCache',JSON.stringify(items));localStorage.setItem('dotaNeutralCache',JSON.stringify(neutralDb));itemLive=true;}catch(e){items=JSON.parse(localStorage.getItem('dotaItemCache')||'null')||FALLBACK_ITEMS;neutralDb=JSON.parse(localStorage.getItem('dotaNeutralCache')||'null')||[];}
+ heroes.sort((a,b)=>a.localized_name.localeCompare(b.localized_name));items.sort((a,b)=>a.dname.localeCompare(b.dname));
+ $('status').textContent=`${heroLive?'Live':'Cached/offline'} heroes: ${heroes.length} • ${itemLive?'Live':'Cached/offline'} items: ${items.length}.`;
+ myHeroId=null;
+ renderAllPickers(); renderNeutralRollPicker();
+ $('analysisFlash').textContent='Select your hero to begin.';
+ $('analysisFlash').className='analysisFlash';
+}
+
+function renderHeroGrid(container,query,mode){
+ const q=norm(query);const selectedEnemyIds=enemies.map(e=>e.id);
+ const visible=heroes.filter(h=>!q||norm(h.localized_name).includes(q));
+ container.innerHTML=visible.map(h=>{
+  const selected=mode==='mine'?h.id==myHeroId:selectedEnemyIds.includes(h.id);
+  const disabled=mode==='enemy'&&h.id==myHeroId;
+  return `<button class="heroChoice ${selected?'selected':''} ${disabled?'disabled':''}" data-id="${h.id}" ${disabled?'disabled':''} title="${esc(h.localized_name)}"><img src="${heroImg(h)}" alt="${esc(h.localized_name)}" onerror="this.style.opacity='.2'"><span class="heroName">${esc(h.localized_name)}</span></button>`;
+ }).join('');
+ container.querySelectorAll('.heroChoice').forEach(btn=>btn.onclick=()=>{
+  const id=Number(btn.dataset.id);if(mode==='mine'){myHeroId=id;enemies=enemies.filter(e=>e.id!==id);delete enemyItems[id];$('myHeroLabel').textContent=heroes.find(h=>h.id===id)?.localized_name||'Selected';}
+  else toggleEnemy(id);renderAllPickers();safeAnalyze(false);
+ });
+}
+function renderAllPickers(){renderHeroGrid($('myHeroGrid'),$('heroSearch').value,'mine');renderHeroGrid($('enemyHeroGrid'),$('enemySearch').value,'enemy');const me=heroes.find(h=>h.id==myHeroId);$('myHeroLabel').textContent=me?.localized_name||'None';renderEnemyCards();renderNeutralRollPicker();}
+function toggleEnemy(id){const existing=enemies.some(e=>e.id===id);if(existing){enemies=enemies.filter(e=>e.id!==id);delete enemyItems[id];}else if(enemies.length<5){const h=heroes.find(x=>x.id===id);if(h)enemies.push(h);}}
+function renderEnemyCards(){
+ $('enemyCount').textContent=`${enemies.length} / 5`;
+ if(!enemies.length){$('enemyCards').innerHTML='<div class="emptyMini">Pick up to five enemies.</div>';return;}
+ $('enemyCards').innerHTML=enemies.map(e=>{
+   const its=(enemyItems[e.id]||[]).map(id=>items.find(i=>String(i.id)===String(id))).filter(Boolean);
+   const mini=its.length?its.map(i=>`<img src="${itemImg(i)}" title="${esc(i.dname)}" onerror="this.style.visibility='hidden'">`).join(''):'<span class="miniEmpty"></span><span class="miniEmpty"></span><span class="miniEmpty"></span>';
+   return `<div class="enemyCard"><img class="enemyPortrait" src="${heroImg(e)}" alt="${esc(e.localized_name)}"><div class="enemyMeta"><strong>${esc(e.localized_name)}</strong><small>${its.length?`${its.length} known item${its.length>1?'s':''}`:'Items unknown'}</small><div class="enemyMiniItems">${mini}</div></div><div class="enemyActions"><button class="smallBtn items" data-items="${e.id}">ITEMS</button><button class="smallBtn remove" data-remove="${e.id}">REMOVE</button></div></div>`;
+ }).join('');
+ document.querySelectorAll('[data-items]').forEach(b=>b.onclick=()=>openItemModal(Number(b.dataset.items)));
+ document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{toggleEnemy(Number(b.dataset.remove));renderAllPickers();safeAnalyze(false);});
+}
+
+function openItemModal(enemyId){activeEnemyId=enemyId;$('itemSearch').value='';$('itemModal').classList.add('open');$('itemModal').setAttribute('aria-hidden','false');renderItemModal();}
+function closeItemModal(recalc=false){$('itemModal').classList.remove('open');$('itemModal').setAttribute('aria-hidden','true');activeEnemyId=null;if(recalc){renderEnemyCards();safeAnalyze(false);}}
+function selectedEnemyItemObjs(enemyId){return (enemyItems[enemyId]||[]).map(id=>items.find(i=>String(i.id)===String(id))).filter(Boolean);}
+function renderItemModal(){
+ const e=enemies.find(x=>x.id===activeEnemyId);if(!e)return;
+ const selected=selectedEnemyItemObjs(e.id);$('itemEnemyIdentity').innerHTML=`<img src="${heroImg(e)}"><div><strong>${esc(e.localized_name)}</strong><div class="hint">Add only items you actually see. You can update this during the match.</div></div>`;$('itemCount').textContent=`${selected.length} / 6`;
+ $('selectedEnemyItems').innerHTML=Array.from({length:6},(_,idx)=>selected[idx]?`<div class="miniSlot"><img src="${itemImg(selected[idx])}" title="${esc(selected[idx].dname)}"></div>`:'<div class="miniSlot emptySlot"></div>').join('');
+ const q=norm($('itemSearch').value);const selectedIds=new Set((enemyItems[e.id]||[]).map(String));
+ const priority=['Black King Bar','Butterfly',"Linken's Sphere",'Ghost Scepter',"Eul's Scepter of Divinity",'Wind Waker','Glimmer Cape','Force Staff','Hurricane Pike','Satanic','Heart of Tarrasque','Scythe of Vyse','Bloodthorn','Nullifier','Monkey King Bar','Abyssal Blade','Silver Edge'];
+ let filtered=items.filter(i=>!q||norm(i.dname).includes(q));
+ if(!q)filtered.sort((a,b)=>{const ai=priority.indexOf(a.dname),bi=priority.indexOf(b.dname);if(ai>=0||bi>=0)return (ai<0?999:ai)-(bi<0?999:bi);return a.dname.localeCompare(b.dname);});
+ filtered=filtered.slice(0,160);
+ $('itemGrid').innerHTML=filtered.map(i=>`<button class="itemChoice ${selectedIds.has(String(i.id))?'selected':''}" data-item="${esc(i.id)}" title="${esc(i.dname)}"><img src="${itemImg(i)}" alt="${esc(i.dname)}" onerror="this.style.opacity='.15'"><span>${esc(i.dname)}</span></button>`).join('');
+ $('itemGrid').querySelectorAll('.itemChoice').forEach(b=>b.onclick=()=>{const id=String(b.dataset.item);const arr=(enemyItems[e.id]||[]).map(String);const has=arr.includes(id);if(has)enemyItems[e.id]=arr.filter(x=>x!==id);else if(arr.length<6)enemyItems[e.id]=[...arr,id];renderItemModal();});
+}
+
+function allEnemyItems(){return enemies.flatMap(e=>selectedEnemyItemObjs(e.id).map(i=>({hero:e,item:i})));}
+function signalData(){
+ const roles=enemies.flatMap(e=>e.roles||[]),count=r=>roles.filter(x=>x===r).length, itemPairs=allEnemyItems(), names=itemPairs.map(x=>norm(x.item.dname)), heroNames=enemies.map(e=>e.localized_name);
+ const hasAny=(arr)=>names.some(n=>arr.some(x=>n===norm(x)));
+ const hasHero=(arr)=>heroNames.some(h=>arr.includes(h));
+ const saves=['Ghost Scepter',"Eul's Scepter of Divinity",'Wind Waker','Glimmer Cape','Force Staff','Hurricane Pike','Ethereal Blade'];
+ const controlItems=['Scythe of Vyse','Orchid Malevolence','Bloodthorn','Abyssal Blade'];
+ const healItems=['Satanic','Heart of Tarrasque','Bloodstone'];
+ return {
+  disablers:count('Disabler'),nukers:count('Nuker'),escapers:count('Escape'),durables:count('Durable'),supports:count('Support'),carries:count('Carry'),
+  evasion:hasAny(['Butterfly'])||hasHero(['Phantom Assassin']),
+  saves:hasAny(saves)||hasHero(['Oracle','Dazzle','Pugna','Omniknight','Abaddon','Necrophos']),
+  healing:hasAny(healItems)||hasHero(['Huskar','Alchemist','Necrophos','Morphling','Lifestealer']),
+  keyControl:hasAny(controlItems),linken:hasAny(["Linken's Sphere"]),enemyBkb:hasAny(['Black King Bar']),enemyMkb:hasAny(['Monkey King Bar']),enemyNullifier:hasAny(['Nullifier']),
+  mobility:hasAny(['Blink Dagger','Swift Blink','Force Staff','Hurricane Pike'])||count('Escape')>=2,
+  illusionThreat:hasHero(['Phantom Lancer','Naga Siren','Chaos Knight','Terrorblade']),knownItems:itemPairs.length
+ };
+}
+function slot(name,why){return {name,why};}
+function replaceSlot(slots,oldName,newName,why){const idx=slots.findIndex(s=>s.name===oldName);if(idx>=0)slots[idx]=slot(newName,why);else if(!slots.some(s=>s.name===newName))slots[slots.length-1]=slot(newName,why);}
+function ensureSlot(slots,name,why,replaceCandidates=[]){if(slots.some(s=>s.name===name))return;const idx=replaceCandidates.map(n=>slots.findIndex(s=>s.name===n)).find(i=>i>=0);if(idx>=0)slots[idx]=slot(name,why);else slots[slots.length-1]=slot(name,why);}
+
+function recommendSix(me,mode){
+ const s=signalData();const name=me.localized_name;let slots=[],swaps=[],warnings=[];let tuned=true;
+ if(name==='Phantom Lancer'){
+   slots=mode==='turbo'?
+    [slot('Manta Style','dispel + illusions'),slot("Aghanim's Scepter",'core Lance spike'),slot('Eye of Skadi','stick + anti-heal'),slot('Bloodthorn','silence + true-strike pressure'),slot('Heart of Tarrasque','survive long fights'),slot('Butterfly','late AGI + physical defense')]:
+    [slot('Power Treads','efficient carry boots'),slot('Manta Style','core dispel + illusions'),slot("Aghanim's Scepter",'core Lance spike'),slot('Eye of Skadi','stick + anti-heal'),slot('Bloodthorn','default kill/control slot'),slot('Heart of Tarrasque','default durability slot')];
+   if(s.enemyBkb&&s.mobility){replaceSlot(slots,'Bloodthorn','Abyssal Blade','reliable catch when silence is less dependable into BKB windows');swaps.push('Bloodthorn → Abyssal because enemies have BKB + escape.');}
+   if(s.saves){ensureSlot(slots,'Nullifier','remove defensive buffs/saves from your kill target',['Heart of Tarrasque','Butterfly']);swaps.push('Add Nullifier when Ghost/Eul/Wind Waker/Glimmer-style saves are stopping kills.');}
+   if(s.evasion&&!slots.some(x=>x.name==='Bloodthorn')){ensureSlot(slots,'Bloodthorn','active true-strike pressure against evasion',['Heart of Tarrasque','Butterfly']);}
+   if(s.disablers>=3&&s.keyControl){ensureSlot(slots,"Linken's Sphere",'extra protection against key targeted control',['Butterfly','Heart of Tarrasque']);warnings.push('Linken is only for a key targeted spell/item; it is not a replacement for positioning or Manta usage.');}
+   if(s.healing&&!slots.some(x=>x.name==='Eye of Skadi'))ensureSlot(slots,'Eye of Skadi','anti-heal + chase',['Butterfly']);
+   if(s.linken)warnings.push('Enemy Linken detected: break Spell Block first before committing Bloodthorn/Abyssal/Nullifier to that target.');
+ } else if(name==='Juggernaut'){
+   slots=mode==='turbo'?
+    [slot('Manta Style','dispel + tempo'),slot('Butterfly','major DPS/evasion'),slot("Aghanim's Scepter",'Slash flexibility'),slot('Swift Blink','backline access + upgrade'),slot('Abyssal Blade','lock mobile targets'),slot('Eye of Skadi','stick + sustain pressure')]:
+    [slot('Power Treads','current core boots'),slot('Battle Fury','farm accelerator until replacement time'),slot('Manta Style','core dispel'),slot('Butterfly','current core DPS/evasion'),slot('Blink Dagger','current backline access'),slot("Aghanim's Scepter",'Slash flexibility')];
+   if(mode==='normal'&&(s.evasion||s.saves||s.mobility||s.knownItems>=4)){replaceSlot(slots,'Battle Fury',s.evasion?'Monkey King Bar':s.saves?'Nullifier':'Abyssal Blade',s.evasion?'counter enemy evasion':s.saves?'remove defensive saves':'reliable late-game catch');swaps.push('Battle Fury is the first normal-game slot to sell once farming is no longer the priority.');}
+   if(s.evasion)ensureSlot(slots,'Monkey King Bar','hit through Butterfly/PA-style evasion',['Eye of Skadi','Abyssal Blade','Battle Fury']);
+   if(s.saves)ensureSlot(slots,'Nullifier','stop defensive item saves from wasting Omnislash',['Eye of Skadi','Battle Fury','Abyssal Blade']);
+   if(s.mobility||s.enemyBkb)ensureSlot(slots,'Abyssal Blade','lock a mobile/BKB target long enough to finish the kill',['Eye of Skadi','Battle Fury']);
+   if(s.disablers>=3&&s.keyControl)ensureSlot(slots,"Linken's Sphere",'block a crucial targeted disable before committing',['Eye of Skadi','Battle Fury']);
+   if(mode==='normal'&&slots.some(x=>x.name==='Blink Dagger')&&s.knownItems>=3){replaceSlot(slots,'Blink Dagger','Swift Blink','late-game Blink upgrade');swaps.push('Blink Dagger → Swift Blink when inventory/gold allows.');}
+   if(s.linken)warnings.push('Enemy Linken detected: do not throw your key single-target catch into Spell Block—break it first.');
+ } else if(name==='Phantom Assassin'){
+   slots=mode==='turbo'?
+    [slot('Power Treads','attack speed + efficient stats'),slot('Desolator','burst physical damage'),slot('Black King Bar','attack through spell control'),slot('Abyssal Blade','reliable lockdown'),slot('Satanic','fight reset + sustain'),slot('Nullifier','default anti-save assassination slot')]:
+    [slot('Power Treads','current core boots'),slot('Battle Fury','farm accelerator; first sell candidate'),slot('Desolator','core burst/armor reduction'),slot('Black King Bar','teamfight permission'),slot('Abyssal Blade','reliable assassination'),slot('Satanic','fight reset + sustain')];
+   if(s.evasion){replaceSlot(slots,'Battle Fury','Monkey King Bar','enemy evasion requires true-strike damage');if(mode==='turbo')replaceSlot(slots,'Nullifier','Monkey King Bar','enemy evasion requires true-strike damage');swaps.push('MKB becomes mandatory-ish when Butterfly/PA evasion is actually stopping hits.');}
+   if(s.saves){ensureSlot(slots,'Nullifier','remove Ghost/Eul/Wind Waker/Glimmer-style defensive buffs',['Battle Fury','Power Treads']);swaps.push('Nullifier is prioritized when supports are surviving your jump with defensive items.');}
+   if(s.disablers>=2||s.keyControl)ensureSlot(slots,'Black King Bar','you need uninterrupted Phantom Strike attacks',['Battle Fury']);
+   if(s.mobility||s.enemyBkb)ensureSlot(slots,'Abyssal Blade','keep the target in place through the burst window',['Battle Fury']);
+   if(s.linken)warnings.push('Enemy Linken detected: use Dagger/teammate/item to break Spell Block before your important Abyssal/Nullifier cast.');
+   if(s.enemyMkb)warnings.push('Enemy MKB detected: your Blur evasion is less reliable. Value BKB/Satanic timing and positioning over assuming you can dodge right-clicks.');
+   if(s.enemyNullifier)warnings.push('Enemy Nullifier detected: defensive buffs can be stripped. Do not depend on one active item as your only survival plan.');
+   if(mode==='normal'&&s.knownItems>=4&&slots.some(x=>x.name==='Power Treads')&&(s.evasion&&s.saves)){replaceSlot(slots,'Power Treads','Swift Blink','ultra-late mobility/damage after two counter slots are required');swaps.push('Ultra late: boots can become Swift Blink once you need both MKB and Nullifier.');}
+ } else {
+   tuned=false;
+   if((me.roles||[]).includes('Carry'))slots=[slot('Power Treads','generic carry boots'),slot('Manta Style','generic dispel/stat slot'),slot('Black King Bar','generic spell protection'),slot('Eye of Skadi','generic late stats'),slot('Abyssal Blade','generic catch'),slot('Satanic','generic sustain')];
+   else if((me.roles||[]).includes('Support'))slots=[slot('Boots of Travel','generic mobility'),slot('Force Staff','save/reposition'),slot('Glimmer Cape','save'),slot('Scythe of Vyse','late disable'),slot("Aghanim's Scepter",'hero scaling'),slot("Linken's Sphere",'situational protection')];
+   else slots=[slot('Power Treads','baseline'),slot('Black King Bar','survival'),slot("Aghanim's Scepter",'hero scaling'),slot('Blink Dagger','positioning'),slot('Scythe of Vyse','disable'),slot('Eye of Skadi','late stats')];
+   warnings.push('Advanced six-slot counter logic is currently hand-tuned for Phantom Lancer, Juggernaut and Phantom Assassin. Other heroes use a role-based baseline.');
+ }
+ return {slots:slots.slice(0,6),swaps,warnings,tuned,signals:s};
+}
+
+function endgameTransitions(me,mode,rec){
+ const finalNames=rec.slots.map(s=>s.name);
+ let baseline=[];
+ if(me.localized_name==='Juggernaut') baseline=mode==='turbo'?
+  ['Power Treads','Manta Style','Butterfly',"Aghanim's Scepter",'Blink Dagger','Abyssal Blade']:
+  ['Power Treads','Battle Fury','Manta Style','Butterfly','Blink Dagger',"Aghanim's Scepter"];
+ else if(me.localized_name==='Phantom Assassin') baseline=mode==='turbo'?
+  ['Power Treads','Desolator','Black King Bar','Abyssal Blade','Satanic','Nullifier']:
+  ['Power Treads','Battle Fury','Desolator','Black King Bar','Abyssal Blade','Satanic'];
+ else if(me.localized_name==='Phantom Lancer') baseline=mode==='turbo'?
+  ['Power Treads','Manta Style',"Aghanim's Scepter",'Eye of Skadi','Bloodthorn','Heart of Tarrasque']:
+  ['Power Treads','Manta Style',"Aghanim's Scepter",'Eye of Skadi','Bloodthorn','Heart of Tarrasque'];
+ else baseline=[...finalNames];
+
+ const transitions=[];
+ const removed=baseline.filter(x=>!finalNames.includes(x));
+ const added=finalNames.filter(x=>!baseline.includes(x));
+ const used=new Set();
+ function pair(from,to,reason,type='replace'){
+   if(!from||!to)return;
+   transitions.push({from,to,reason,type});used.add(to);
+ }
+ // Prefer true upgrades before arbitrary one-for-one replacements.
+ if(removed.includes('Blink Dagger')&&added.includes('Swift Blink')) pair('Blink Dagger','Swift Blink','Upgrade the same slot once you can afford the luxury version.','upgrade');
+ const priority=['Battle Fury','Power Treads','Blink Dagger','Butterfly','Eye of Skadi','Heart of Tarrasque',"Aghanim's Scepter",'Manta Style','Abyssal Blade','Satanic'];
+ const remainingRemoved=removed.filter(x=>!transitions.some(t=>t.from===x)).sort((a,b)=>priority.indexOf(a)-priority.indexOf(b));
+ const remainingAdded=added.filter(x=>!used.has(x));
+ for(const from of remainingRemoved){
+   let to=remainingAdded.shift();
+   if(!to)break;
+   let reason='Replace the lower-value late-game slot with the exact matchup item shown in Final 6.';
+   if(from==='Battle Fury') reason='Battle Fury did its job by accelerating farm. Once farming speed matters less than winning the next fight, sell it for this matchup slot.';
+   else if(from==='Power Treads') reason='Ultra-late slot efficiency: replace boots only when you can still position reliably without them.';
+   else if(from==='Blink Dagger') reason='Your final build needs a stronger combat slot than basic Blink.';
+   pair(from,to,reason,'replace');
+ }
+ if(me.localized_name==='Juggernaut'&&mode==='normal'&&finalNames.includes('Battle Fury')) transitions.push({from:'Battle Fury',to:'KEEP FOR NOW',reason:'Your current enemy information does not yet justify selling it. Keep farming value until a real counter/luxury item becomes more important.',type:'keep'});
+ return transitions;
+}
+
+function purchasePath(me,mode,rec){
+ const finalNames=rec.slots.map(s=>s.name);const finalText='Finish the exact six slots shown above';
+ const end=endgameTransitions(me,mode,rec);
+ if(me.localized_name==='Phantom Lancer')return mode==='turbo'?
+  [['0–5 min',['Power Treads','Magic Wand'],'Fast combat stats.',[]],['6–11 min',['Manta Style'],'Get dispel + illusion tempo immediately.',[]],['11–16 min',["Aghanim's Scepter"],'Major Spirit Lance fight/farm spike.',[]],['16–22 min',['Eye of Skadi'],'Turn the lead into chase and survivability.',[]],['22+ min',finalNames,finalText+'. Fill Bloodthorn first; then sell temporary slots as the last luxury items arrive.',[{from:'Magic Wand',to:'Heart of Tarrasque',reason:'Wand is an early survival slot; Heart is real late-game durability.',type:'replace'},...end]]]:
+  [['0–7 min',['Power Treads','Magic Wand'],'Lane efficiency and survival.',[]],['10–17 min',['Yasha','Manta Style'],'Core dispel + illusion acceleration.',[{from:'Yasha',to:'Manta Style',reason:'This is an upgrade path, not a sell.',type:'upgrade'}]],['18–24 min',["Aghanim's Scepter"],'Major pressure spike.',[]],['25–32 min',['Eye of Skadi'],'Stick to targets and reduce healing.',[]],['33+ min',finalNames,finalText+'; final two slots are matchup-driven.',[{from:'Magic Wand',to:'Bloodthorn',reason:'Sell Wand when your inventory fills; Bloodthorn is the first true late damage/control slot in the default path.',type:'replace'},...end]]];
+ if(me.localized_name==='Juggernaut')return mode==='turbo'?
+  [['0–5 min',['Power Treads','Magic Wand'],'Get combat-ready.',[]],['5–10 min',['Manta Style'],'Turbo tempo + dispel.',[]],['10–16 min',['Butterfly'],'Large right-click spike.',[]],['16–22 min',["Aghanim's Scepter",'Blink Dagger'],'Get Slash flexibility + access.',[]],['22+ min',finalNames,finalText+'. Turbo reaches slot pressure quickly, so convert early utility into combat slots.',[{from:'Magic Wand',to:'Abyssal Blade',reason:'Once the inventory fills, Wand gives far less fight value than reliable lockdown.',type:'replace'},...end]]]:
+  [['0–7 min',['Power Treads','Magic Wand'],'Lane stability.',[]],['10–15 min',['Battle Fury'],'Farm accelerator — buy it to reach your real fighting inventory faster, not because it must stay forever.',[]],['16–22 min',['Yasha','Manta Style'],'Dispel + pressure.',[{from:'Yasha',to:'Manta Style',reason:'Yasha becomes Manta Style; do not treat them as two separate final slots.',type:'upgrade'}]],['23–31 min',['Butterfly','Blink Dagger',"Aghanim's Scepter"],'Current high-MMR core fight package.',[{from:'Magic Wand',to:"Aghanim's Scepter",reason:'When the sixth real slot is needed, Wand is the first cheap early item to leave.',type:'replace'}]],['32+ min',finalNames,finalText+'. This row now tells you exactly what leaves for the matchup-based Final 6.',end]];
+ if(me.localized_name==='Phantom Assassin')return mode==='turbo'?
+  [['0–5 min',['Power Treads','Magic Wand'],'Immediate stats.',[]],['5–10 min',['Desolator'],'Fight-now physical burst.',[]],['10–15 min',['Black King Bar'],'Do not lose Turbo net worth to chain control.',[]],['15–21 min',['Skull Basher','Abyssal Blade'],'Make the jump reliable.',[{from:'Skull Basher',to:'Abyssal Blade',reason:'Basher upgrades into Abyssal Blade.',type:'upgrade'}]],['21+ min',finalNames,finalText+'. Counter items replace greed quickly in Turbo.',[{from:'Magic Wand',to:'Satanic',reason:'Sell the early Wand for a real late-game sustain slot when inventory fills.',type:'replace'},...end]]]:
+  [['0–7 min',['Power Treads','Magic Wand'],'Lane + early mobility.',[]],['11–16 min',['Battle Fury'],'Primary farm accelerator. It can be sold later once you have enough net worth and need a stronger fight slot.',[]],['18–23 min',['Desolator'],'Kill/Roshan physical spike.',[]],['22–30 min',['Black King Bar','Skull Basher'],'Fight permission + catch.',[]],['30+ min',finalNames,finalText+'. The exact Battle Fury replacement is shown below based on enemy heroes/items.',[{from:'Skull Basher',to:'Abyssal Blade',reason:'Upgrade Basher into Abyssal rather than keeping both.',type:'upgrade'},{from:'Magic Wand',to:'Satanic',reason:'Wand is an early slot; Satanic is the late sustain replacement.',type:'replace'},...end]]];
+ return [['Early',[finalNames[0]],'Baseline lane item.',[]],['Mid',finalNames.slice(1,3),'Hero core.',[]],['Late',finalNames.slice(3),'Role-based late inventory.',end]];
+}
+
+function calcWin(h){const p=h.pro_pick||0,w=h.pro_win||0;if(p>10)return `${(100*w/p).toFixed(1)}% pro`;const pick=h['8_pick']||0,win=h['8_win']||0;return pick?`${(100*win/pick).toFixed(1)}% high-skill`:'—';}
+function threatFor(e){const roles=e.roles||[];let score=0,problems=[];if(roles.includes('Disabler')){score+=3;problems.push('hard disable');}if(roles.includes('Nuker')){score+=2;problems.push('burst');}if(roles.includes('Initiator')){score+=2;problems.push('initiation');}if(roles.includes('Escape')){score+=1;problems.push('escape');}if(roles.includes('Durable')){score+=1;problems.push('durability');}if(roles.includes('Support')){score+=1;problems.push('save/utility');}const special={Axe:['Call punishes clumped melee/illusions'],Lion:['Hex + stun can stop a carry before damage starts'],'Shadow Shaman':['long chain disable; high-priority target'],Earthshaker:['AoE control is especially dangerous to illusion heroes'],'Faceless Void':['Chronosphere demands positioning before raw DPS'],Sniper:['backline access is the matchup'],Invoker:['multiple control spells; track what is used'],'Crystal Maiden':['root + slow; vulnerable priority target if reachable']};if(special[e.localized_name])problems.push(...special[e.localized_name]);const known=selectedEnemyItemObjs(e.id);if(known.some(i=>i.dname==='Butterfly')){score+=2;problems.push('Butterfly evasion');}if(known.some(i=>['Scythe of Vyse','Bloodthorn','Abyssal Blade'].includes(i.dname))){score+=2;problems.push('item-based lockdown');}if(known.some(i=>['Ghost Scepter',"Eul's Scepter of Divinity",'Wind Waker','Glimmer Cape'].includes(i.dname))){score+=1;problems.push('defensive save item');}return {score,problems};}
+function counterAdvice(me,rec){const s=rec.signals,cards=[];if(s.disablers>=2)cards.push(['CHAIN STUN',me.localized_name==='Phantom Lancer'?'Manta + positioning':'BKB priority','Multiple disablers mean another damage item is worthless if you never get to attack.']);if(s.evasion)cards.push(['EVASION',me.localized_name==='Phantom Lancer'?'Bloodthorn':'Monkey King Bar','Enemy Butterfly/PA-style evasion is now a real item signal, not a guess.']);if(s.saves)cards.push(['DEFENSIVE SAVES','Nullifier','Ghost/Eul/Wind Waker/Glimmer-style saves can waste your entire assassination window.']);if(s.mobility)cards.push(['ESCAPE','Abyssal / backline access','The target must stay in range long enough for your damage to matter.']);if(s.healing)cards.push(['HEALING / SUSTAIN','Skadi pressure','Reduce sustain and keep targets from resetting the fight.']);if(s.linken)cards.push(['LINKEN\'S','Break Spell Block first','Do not dump your important targeted item into Linken’s.']);if(!cards.length)cards.push(['NO HARD COUNTER SEEN','Current pro core','Use the current core and keep the last slot flexible until enemy items are revealed.']);return cards;}
+function targetPriority(){if(!enemies.length)return 'No enemies selected.';return [...enemies].sort((a,b)=>{const score=h=>(h.roles||[]).includes('Support')?4:0+(h.attack_type==='Ranged'?1:0)-((h.roles||[]).includes('Durable')?2:0);return score(b)-score(a);}).map(e=>e.localized_name).join(' → ');}
+function answerFor(e){const r=e.roles||[],a=[];const its=selectedEnemyItemObjs(e.id).map(i=>i.dname);if(r.includes('Disabler'))a.push('protect attack window');if(r.includes('Escape'))a.push('Abyssal/catch');if(r.includes('Durable'))a.push('sustained DPS');if(r.includes('Support'))a.push('backline first');if(its.includes('Butterfly'))a.push('MKB/Bloodthorn');if(its.some(i=>['Ghost Scepter',"Eul's Scepter of Divinity",'Wind Waker','Glimmer Cape'].includes(i)))a.push('Nullifier');if(its.includes("Linken's Sphere"))a.push('break Linken first');return a.join('; ')||'positioning + core timing';}
+
+function renderSix(rec){
+ $('sixSlots').classList.remove('empty');$('sixSlots').innerHTML=rec.slots.map((s,i)=>`<div class="slot"><span class="slotNumber">SLOT ${i+1}</span><img src="${itemImg(s.name)}" alt="${esc(s.name)}" onerror="this.style.opacity='.15'"><div class="slotName">${esc(s.name)}</div><div class="slotWhy">${esc(s.why)}</div></div>`).join('');
+ $('slotReasons').innerHTML=rec.slots.map((s,i)=>`<div class="reasonChip"><strong>${i+1}. ${esc(s.name)}</strong><br>${esc(s.why)}</div>`).join('');
+ const extra=[...rec.swaps.map(x=>`<span class="swap">↔ ${esc(x)}</span>`),...rec.warnings.map(x=>`<span class="swap">⚠ ${esc(x)}</span>`)].join('');$('replacementPlan').innerHTML=extra||'<span class="swap">No forced replacement detected yet.</span>';
+ const known=rec.signals.knownItems;let level=known>=3?'high':enemies.length?'medium':'low';if(!rec.tuned)level='low';$('confidenceBadge').className=`confidence ${level}`;$('confidenceBadge').textContent=level==='high'?'High confidence':level==='medium'?'Hero-based estimate':'Baseline only';
+ if(!enemies.length){$('accuracyPrompt').className='accuracyPrompt attention';$('accuracyPrompt').textContent='Add the enemy heroes first. The six slots above are only the hero baseline.';}else if(!known){$('accuracyPrompt').className='accuracyPrompt attention';$('accuracyPrompt').textContent='Enemy heroes are loaded, but their items are unknown. Click ITEMS beside enemies for more accurate MKB / Nullifier / Linken / Abyssal decisions.';}else{$('accuracyPrompt').className='accuracyPrompt';$('accuracyPrompt').textContent=`Using ${known} known enemy item${known>1?'s':''}. Update them during the match whenever you spot a new major item.`;}
+}
+function renderTimeline(me,mode,rec){
+ const path=purchasePath(me,mode,rec);
+ $('buildTimeline').innerHTML=path.map(x=>{
+   const transitions=(x[3]||[]).map(t=>{
+     const cls=t.type==='upgrade'?'upgrade':t.type==='keep'?'keep':'';
+     const from=t.from==='KEEP FOR NOW'?'':`<img src="${itemImg(t.from)}" alt="${esc(t.from)}" onerror="this.style.opacity='.15'">`;
+     const to=t.to==='KEEP FOR NOW'?`<strong>KEEP BATTLE FURY</strong>`:`<img src="${itemImg(t.to)}" alt="${esc(t.to)}" onerror="this.style.opacity='.15'"><strong>${esc(t.to)}</strong>`;
+     const label=t.type==='upgrade'?'UPGRADE':t.type==='keep'?'KEEP':'SELL / REPLACE';
+     return `<span class="transition ${cls}" title="${esc(t.reason)}">${from}<span><b>${label}</b> ${esc(t.from)} <span class="arrow">→</span> ${to}<br><small>${esc(t.reason)}</small></span></span>`;
+   }).join('');
+   return `<div class="timelineItem"><div class="time">${esc(x[0])}</div><div><div class="itemLine">${x[1].filter(Boolean).map(itemToken).join('')}</div><small>${esc(x[2])}</small>${transitions?`<div class="transitionLine">${transitions}</div>`:''}</div></div>`;
+ }).join('');
+}
+function renderThreats(){if(!enemies.length){$('threatTable').textContent='No enemies selected.';return;}const rows=enemies.map(e=>{const t=threatFor(e),risk=t.score>=5?'High':t.score>=3?'Medium':'Low',cls=risk==='High'?'riskHigh':risk==='Medium'?'riskMed':'riskLow',its=selectedEnemyItemObjs(e.id);return `<tr><td><div class="tableHero"><img src="${heroImg(e)}"><div><strong>${esc(e.localized_name)}</strong><br><small>${esc((e.roles||[]).join(', '))}</small></div></div><div class="tableItems">${its.map(i=>`<img src="${itemImg(i)}" title="${esc(i.dname)}">`).join('')}</div></td><td class="${cls}">${risk}</td><td>${esc(t.problems.join(' • ')||'General matchup threat')}</td><td>${esc(answerFor(e))}</td></tr>`;}).join('');$('threatTable').innerHTML=`<table><thead><tr><th>Enemy + known items</th><th>Risk</th><th>Problem</th><th>Response</th></tr></thead><tbody>${rows}</tbody></table>`;}
+
+function analyze(){
+ const me=heroes.find(h=>h.id==myHeroId);if(!me)return;const mode=$('mode').value,rec=recommendSix(me,mode),notes=heroNotes[me.localized_name];
+ $('heroIdentity').innerHTML=`<div class="heroIdentityRow"><img class="heroMainPortrait" src="${heroImg(me)}" alt="${esc(me.localized_name)}"><div><div class="eyebrow">${esc((me.roles||[]).join(' • '))}</div><h2>${esc(me.localized_name)}</h2><p>${esc((me.primary_attr||'').toUpperCase())} • ${esc(me.attack_type||'')} • ${mode==='turbo'?'Turbo pacing':'Normal / Ranked pacing'}</p></div></div>`;
+ $('liveStats').innerHTML=`<div class="stat"><strong>${calcWin(me)}</strong><span>OpenDota signal</span></div><div class="stat"><strong>${me.pro_pick||0}</strong><span>pro picks in API sample</span></div><div class="stat"><strong>${allEnemyItems().length}</strong><span>known enemy items</span></div>`;
+ renderSix(rec);renderNeutrals(me,rec);renderTalents(me,rec);renderTimeline(me,mode,rec);$('counterCards').innerHTML=counterAdvice(me,rec).map(c=>`<div class="card"><span class="tag">${esc(c[0])}</span><strong>${esc(c[1])}</strong><p>${esc(c[2])}</p></div>`).join('');
+ const fight=notes?.fight||['Let your initiator show first when possible.','Track the spells/items that can stop your hero before committing.','Kill high-value reachable targets, then convert the won fight into an objective.'];$('fightPlan').innerHTML=`<ol>${fight.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><p><strong>Target priority:</strong> ${esc(targetPriority())}</p>`;
+ $('survival').innerHTML='<ul><li>Before crossing the river, count visible enemies. Missing disables = danger.</li><li>Do not spend every defensive cooldown at the start of a fight.</li><li>After showing on a wave, assume enemies can rotate toward you.</li><li>If the next item is a major timing, dying for a low-value fight delays your whole game.</li><li>After a kill, convert it: tower, Roshan, barracks, vision area, or safe farm.</li></ul>';
+ $('spikes').innerHTML=`<ul>${(notes?.spikes||['First core item','Defensive item','Catch/damage item','Late-game counter item']).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;$('techniques').innerHTML=`<ul>${(notes?.tech||['Use escape/defensive mechanics reactively.','Check enemy inventories before major fights.','Adapt final slots to what actually stops you.']).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;renderThreats();
+ const q=encodeURIComponent(me.localized_name);$('researchLinks').innerHTML=`<a target="_blank" href="https://dota2protracker.com/hero/${q}">Dota2ProTracker: ${esc(me.localized_name)}</a><a target="_blank" href="https://www.opendota.com/heroes/${me.id}">OpenDota Hero Stats</a><a target="_blank" href="https://www.dota2.com/patches/7.41e">Official 7.41e Patch</a>`;
+}
+
+$('heroSearch').oninput=()=>renderHeroGrid($('myHeroGrid'),$('heroSearch').value,'mine');
+$('enemySearch').oninput=()=>renderHeroGrid($('enemyHeroGrid'),$('enemySearch').value,'enemy');
+$('itemSearch').oninput=renderItemModal;
+$('mode').onchange=()=>safeAnalyze(false);$('analyze').onclick=()=>safeAnalyze(true);$('refresh').onclick=()=>loadData(true);
+$('closeItemModal').onclick=()=>closeItemModal(false);$('doneEnemyItems').onclick=()=>closeItemModal(true);$('clearEnemyItems').onclick=()=>{if(activeEnemyId!=null){enemyItems[activeEnemyId]=[];renderItemModal();}};
+$('itemModal').addEventListener('click',e=>{if(e.target?.dataset?.close)closeItemModal(false);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('itemModal').classList.contains('open'))closeItemModal(false);});
+
+loadData();
+</script>
+</body>
+</html>
